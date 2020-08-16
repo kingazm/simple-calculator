@@ -11,84 +11,81 @@
 #include <unistd.h>
 using namespace std;
 
-int liczba;
-float wspolczynniki[100];
-int wybor;
+int amount;
+float numbers[100];
+int choice;
+float result;
 
-//fukcja kalkulatora
-void kalkulator(){
+void calculator(){
     
     while(1==1){
-        cout<<"Podaj liczbę współczynników"<<endl;
-        cin>>liczba;
-        if(liczba<=1){
+        cout<<"Enter the amount of numbers"<<endl;
+        cin>>amount;
+        if(amount<=1){
             sleep(1);
-            cout<<"Nieprawidłowa liczba współczynników"<<endl;
+            cout<<"Incorrect amount of numbers"<<endl;
             sleep(1);
         }else{
             break;
         }
     }
     
-    for (int i=0; i<liczba; i++) {
-        cout<<"Wprowadź współczynnik: "<<endl;
-        cin>>wspolczynniki[i];
+    for (int i=0; i<amount; i++) {
+        cout<<"Enter the number: "<<endl;
+        cin>>numbers[i];
         sleep(1);
     }
     
-    cout<<"Wybierz działanie:"<<endl;
+    cout<<"Choose the operation: "<<endl;
     sleep(1);
-    cout<<"1/ dodawanie"<<endl<<"2/ odejmowanie"<<endl<<"3/ mnożenie"<<endl<<"4/ dzielenie"<<endl;
-    cin>>wybor;
+    cout<<"1 adding"<<endl<<"2 subtracting"<<endl<<"3 multiplying"<<endl<<"4 dividing"<<endl;
+    cin>>choice;
     sleep(1);
         
-    if(wybor==1){
-        float suma;
-        suma = 0;
-        for (int j=0; j<=liczba; j++) {
-            suma = suma + wspolczynniki[j];
+    if(choice==1){
+        result = 0;
+        for (int j=0; j<=amount; j++) {
+            result = result + numbers[j];
         }
-        cout<<"Wynik dodawania współczynników to: "<<suma;
+        cout<<"The result of adding your numbers is: "<<result;
     }
-    if(wybor==2){
-        float roznica=0 + wspolczynniki[0];;
-        for (int k=1; k<=liczba; k++) {
-            roznica = roznica - wspolczynniki[k];
+    if(choice==2){
+        result=0 + numbers[0];;
+        for (int k=1; k<=amount; k++) {
+            result = result - numbers[k];
         }
-        cout<<"Wynik odejmowania współczynników to: "<<roznica;
+        cout<<"The result of subtracting your numbers is: "<<result;
     }
-    if(wybor==3){
-        float iloczyn=1;
-        for (int l=0; l<liczba; l++) {
-            iloczyn = iloczyn * wspolczynniki[l];
+    if(choice==3){
+        result=1;
+        for (int l=0; l<amount; l++) {
+            result = result * numbers[l];
         }
-        cout<<"Wynik mnożenia współczynników to: "<<iloczyn;
+        cout<<"The result of multiplying your numbers is: "<<result;
     }
-    if(wybor==4){
-        float iloraz= wspolczynniki[0];;
-        for (int m=1; m<liczba; m++) {
-            iloraz = iloraz / wspolczynniki[m];
+    if(choice==4){
+        result= numbers[0];;
+        for (int m=1; m<amount; m++) {
+            result = result / numbers[m];
         }
-        cout<<"Wynik mnożenia współczynników to: "<<iloraz;
+        cout<<"The result of dividing your numbers is: "<<result;
     }
 }
-//koniec fukcji kalkulatora
 
 int main() {
-    cout<<"To jest prosty kalkulator"<<endl;
+    cout<<"This is a simple calculator"<<endl;
     sleep(1);
-    cout<<"Autor: Kinga Żmuda"<<endl;
+    cout<<"Author: @kingazm"<<endl;
     sleep(1);
     while(1==1) {
-        kalkulator();
+        calculator();
         sleep(1);
-        cout<<endl<<"Naciśnij 0, aby zakończyć program."<<endl<<"Aby policzyć jeszcze raz wybierz 1."<<endl;
-        cin>>wybor;
-        if(wybor==0) {
+        cout<<endl<<"Press 0 to exit."<<endl<<"To make more operations press 1."<<endl;
+        cin>>choice;
+        if(choice==0) {
             exit(0);
         }
     }
     return 0;
 }
 
-:wq
